@@ -23,12 +23,29 @@ public class Application {
 
         List<Picture> picturesD = new DataLoader("d_pet_pictures.txt").getSlideShow();
 
+        List<Picture> picturesE = new DataLoader("e_shiny_selfies.txt").getSlideShow();
 
         MagicProcessor processor = new Processor();
 
         Slideshow slideshow = processor.process(picturesA);
         Utils.getResults(slideshow);
         DataOutput.write("out_a", slideshow);
+
+        slideshow = processor.process(picturesB);
+        Utils.getResults(slideshow);
+        DataOutput.write("out_b", slideshow);
+
+        slideshow = processor.process(picturesC);
+        Utils.getResults(slideshow);
+        DataOutput.write("out_c", slideshow);
+
+        slideshow = processor.process(picturesD);
+        Utils.getResults(slideshow);
+        DataOutput.write("out_d", slideshow);
+
+        slideshow = processor.process(picturesE);
+        Utils.getResults(slideshow);
+        DataOutput.write("out_e", slideshow);
     }
 
 }
