@@ -21,18 +21,17 @@ public class DataLoader {
         this.docName = docName;
     }
 
-    public Slideshow getSlideShow() throws IOException {
+    public List<Picture> getSlideShow() throws IOException {
 
 
 
-        Slideshow slideshow= new Slideshow(new ArrayList<Picture>());
+
         List<String> lines = Files.readAllLines(Paths.get(filePath.concat(docName)));
 
         List<Picture> pictures = new ArrayList<Picture>();
 
         lines.remove(0);
 
-        Picture picture;
         List<String> tagList;
         boolean horizontal;
         int pictureId = 0;
@@ -42,10 +41,10 @@ public class DataLoader {
             horizontal = arrayLine[0].equals("H") ? true:false;
             int numTags = Integer.parseInt(arrayLine[1]);
             tagList = new ArrayList<String>();
-            slideshow.getPictures().add(new Picture(pictureId, horizontal,tagList));
+            pictures.add(new Picture(pictureId, horizontal,tagList));
         }
 
-        return slideshow;
+        return pictures;
     }
 
 
