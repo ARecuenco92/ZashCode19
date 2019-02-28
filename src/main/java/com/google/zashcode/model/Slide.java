@@ -2,6 +2,11 @@ package com.google.zashcode.model;
 
 import lombok.Data;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 @Data
 public class Slide {
 
@@ -26,8 +31,22 @@ public class Slide {
         }
     }
 
+<<<<<<< Updated upstream
     public boolean isEmpty() {
         return picture1 == null && picture2 == null;
     }
 
+=======
+
+    public List<String> getTags() {
+        Set<String> set = new HashSet<>();
+        if(picture1 != null) {
+            set.addAll(picture1.getTags());
+        }
+        if(picture2 != null) {
+            set.addAll(picture2.getTags());
+        }
+        return set.stream().collect(Collectors.toList());
+    }
+>>>>>>> Stashed changes
 }
