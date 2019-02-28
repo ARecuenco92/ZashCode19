@@ -5,6 +5,7 @@ import com.google.zashcode.model.Slide;
 import com.google.zashcode.model.Slideshow;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Processor {
@@ -36,7 +37,10 @@ public class Processor {
     public static void main(String[] args) {
 
         Processor processor = new Processor();
-
+        List<Picture> pictureList = new ArrayList<>();
+        pictureList.add(new Picture(1, true, Arrays.asList("tag1", "tag2")));
+        pictureList.add(new Picture(2, true, Arrays.asList("tag2", "tag3")));
+        pictureList.add(new Picture(3, true, Arrays.asList("tag3", "tag4")));
         System.out.println("Wer are Acquisition Hackers!!!");
     }
 
