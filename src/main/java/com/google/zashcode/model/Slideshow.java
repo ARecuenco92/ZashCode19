@@ -11,10 +11,8 @@ public class Slideshow {
 
     private int numberOfPictures = 0;
 
-    private List<Picture> pictures;
-
-    public Slideshow(List<Picture> pictures) {
-        this.pictures = pictures;
+    public Slideshow(List<Slide> slides) {
+        this.slides = slides;
     }
 
 }

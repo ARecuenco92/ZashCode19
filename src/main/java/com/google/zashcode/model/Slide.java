@@ -31,12 +31,10 @@ public class Slide {
         }
     }
 
-<<<<<<< Updated upstream
     public boolean isEmpty() {
         return picture1 == null && picture2 == null;
     }
 
-=======
 
     public List<String> getTags() {
         Set<String> set = new HashSet<>();
@@ -48,5 +46,4 @@ public class Slide {
         }
         return set.stream().collect(Collectors.toList());
     }
->>>>>>> Stashed changes
 }
