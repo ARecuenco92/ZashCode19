@@ -26,4 +26,8 @@ public class Slide {
         }
     }
 
+    public boolean isEmpty() {
+        return picture1 == null && picture2 == null;
+    }
+
 }
