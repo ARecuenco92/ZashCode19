@@ -15,4 +15,9 @@ public class Slideshow {
         this.slides = slides;
     }
 
+    public void addSlide(Slide slide) {
+        slides.add(slide);
+    }
+
+
 }

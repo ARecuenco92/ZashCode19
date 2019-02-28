@@ -2,6 +2,7 @@ package com.google.zashcode;
 
 import com.google.zashcode.model.Picture;
 import com.google.zashcode.model.Slideshow;
+import com.google.zashcode.processors.AlbertoProcessor;
 import com.google.zashcode.processors.MagicProcessor;
 import com.google.zashcode.processors.Processor;
 
@@ -25,26 +26,26 @@ public class Application {
 
         List<Picture> picturesE = new DataLoader("e_shiny_selfies.txt").getSlideShow();
 
-        MagicProcessor processor = new Processor();
+        MagicProcessor processor = new AlbertoProcessor();
 
         Slideshow slideshow = processor.process(picturesA);
-        Utils.getResults(slideshow);
+        System.out.println("POINTS = "+Utils.getResults(slideshow));
         DataOutput.write("out_a", slideshow);
 
         slideshow = processor.process(picturesB);
-        Utils.getResults(slideshow);
+        System.out.println("POINTS = "+Utils.getResults(slideshow));
         DataOutput.write("out_b", slideshow);
 
         slideshow = processor.process(picturesC);
-        Utils.getResults(slideshow);
+        System.out.println("POINTS = "+Utils.getResults(slideshow));
         DataOutput.write("out_c", slideshow);
 
         slideshow = processor.process(picturesD);
-        Utils.getResults(slideshow);
+        System.out.println("POINTS = "+Utils.getResults(slideshow));
         DataOutput.write("out_d", slideshow);
 
         slideshow = processor.process(picturesE);
-        Utils.getResults(slideshow);
+        System.out.println("POINTS = "+Utils.getResults(slideshow));
         DataOutput.write("out_e", slideshow);
     }
 

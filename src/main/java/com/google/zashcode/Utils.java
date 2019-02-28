@@ -22,7 +22,7 @@ public class Utils {
             points = points + getResult(first, second);
         }
 
-        System.out.println("Points: " + points);
+//        System.out.println("Points: " + points);
 
         return points;
     }
