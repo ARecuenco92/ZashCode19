@@ -41,7 +41,7 @@ public class Processor {
         pictureList.add(new Picture(1, true, Arrays.asList("tag1", "tag2")));
         pictureList.add(new Picture(2, true, Arrays.asList("tag2", "tag3")));
         pictureList.add(new Picture(3, true, Arrays.asList("tag3", "tag4")));
-        System.out.println("Wer are Acquisition Hackers!!!");
+        System.out.println("points="+Utils.getResults(processor.process1(pictureList)));
     }
 
 

@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Utils {
 
-    public Integer getResults(Slideshow slideshow) {
+    public static Integer getResults(Slideshow slideshow) {
         List<Slide> slides = slideshow.getSlides();
 
         Integer size = slides.size() - 1;
@@ -27,10 +27,7 @@ public class Utils {
         return points;
     }
 
-    private Integer getResult(Slide first, Slide second) {
-        List<String> tags1 = first.getPicture1().getTags();
-
-        List<String> tags2 = second.getPicture1().getTags();
+    private static Integer getResult(Slide first, Slide second) {
 
         Integer intersection = intersection(first, second);
 
@@ -41,7 +38,7 @@ public class Utils {
         return Math.min(Math.min(intersection, difference1), difference2);
     }
 
-    private Integer intersection(Slide first, Slide second) {
+    private static Integer intersection(Slide first, Slide second) {
         Integer points = 0;
 
         for(String tag : first.getTags()) {
@@ -51,7 +48,7 @@ public class Utils {
         return points;
     }
 
-    private Integer difference(Slide first, Slide second) {
+    private static Integer difference(Slide first, Slide second) {
         Integer points = 0;
 
         for(String tag : first.getTags()) {
