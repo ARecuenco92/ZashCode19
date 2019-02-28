@@ -9,7 +9,12 @@ public class Slideshow {
 
     private List<Slide> slides;
 
-    public Slideshow(List<Slide> slides) {
-        this.slides = slides;
+    private int numberOfPictures = 0;
+
+    private List<Picture> pictures;
+
+    public Slideshow(List<Picture> pictures) {
+        this.pictures = pictures;
     }
+
 }
