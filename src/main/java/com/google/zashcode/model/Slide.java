@@ -31,6 +31,15 @@ public class Slide {
         }
     }
 
+    @Override
+    public String toString(){
+        String slideString = picture1.getId().toString();
+        if(picture2 != null){
+            slideString = slideString.concat(" " + picture2.getId().toString());
+        }
+        return slideString;
+    }
+
     public boolean isEmpty() {
         return picture1 == null && picture2 == null;
     }
