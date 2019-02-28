@@ -1,9 +1,5 @@
 package com.google.zashcode;
 
-import com.google.zashcode.model.Car;
-import com.google.zashcode.model.City;
-import com.google.zashcode.model.Ride;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
