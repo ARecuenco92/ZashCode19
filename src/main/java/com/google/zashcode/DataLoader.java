@@ -1,5 +1,9 @@
 package com.google.zashcode;
 
+import com.google.zashcode.model.Picture;
+import com.google.zashcode.model.Slideshow;
+import com.sun.xml.internal.fastinfoset.util.StringArray;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -17,46 +21,31 @@ public class DataLoader {
         this.docName = docName;
     }
 
-    public City getCity() throws IOException {
-        int numberOfCars,numberOfRides,rideCounter = 0;
-        City city = new City();
+    public Slideshow getSlideShow() throws IOException {
+
+
+
+        Slideshow slideshow= new Slideshow(new ArrayList<Picture>());
         List<String> lines = Files.readAllLines(Paths.get(filePath.concat(docName)));
 
-        String cityString = lines.get(0);
-            String [] split = cityString.split(" ");
-            city.setRows(Integer.parseInt(split[0]));
-            city.setColumns(Integer.parseInt(split[1]));
-            numberOfCars = Integer.parseInt(split[2]);
-            numberOfRides = Integer.parseInt(split[3]);
-            city.setBonus(Integer.parseInt(split[4]));
-            city.setSteps(Integer.parseInt(split[5]));
+        List<Picture> pictures = new ArrayList<Picture>();
+
         lines.remove(0);
 
-        List<Ride> rides;
+        Picture picture;
+        List<String> tagList;
+        boolean horizontal;
+        int pictureId = 0;
+        for(String pictureLine : lines){
+            String[] arrayLine = pictureLine.split(" ");
 
-        city.setRides(new ArrayList<Ride>());
-        for(String stringRide : lines){
-            Ride rideAux =  new Ride();
-            String [] rideSplit = stringRide.split(" ");
-            rideAux.setEndTime(Integer.parseInt(rideSplit[5]));
-            rideAux.setEndX(Integer.parseInt(rideSplit[2]));
-            rideAux.setEndY(Integer.parseInt(rideSplit[3]));
-            rideAux.setId(rideCounter++);
-            rideAux.setStartTime(Integer.parseInt(rideSplit[4]));
-            rideAux.setStartX(Integer.parseInt(rideSplit[0]));
-            rideAux.setStartY(Integer.parseInt(rideSplit[1]));
-            city.getRides().add(rideAux);
+            horizontal = arrayLine[0].equals("H") ? true:false;
+            int numTags = Integer.parseInt(arrayLine[1]);
+            tagList = new ArrayList<String>();
+            slideshow.getPictures().add(new Picture(pictureId, horizontal,tagList));
         }
 
-        city.setCars(new ArrayList<Car>());
-        for(int carCounter = 0; carCounter < numberOfCars;carCounter++){
-            Car car = new Car();
-            car.setId(carCounter);
-            city.getCars().add(car);
-        }
-
-
-        return city;
+        return slideshow;
     }
 
 
