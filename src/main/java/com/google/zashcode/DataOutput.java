@@ -1,5 +1,8 @@
 package com.google.zashcode;
 
+import com.google.zashcode.model.Slide;
+import com.google.zashcode.model.Slideshow;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -8,11 +11,14 @@ import java.util.List;
 
 public class DataOutput {
 
-    public static void write(String file, List<Car> cars) {
-        List<String> lines = new ArrayList<String>();
+    public static void write(String file, Slideshow slideshow) {
+        List<Slide> slideList = slideshow.getSlides();
 
-        for (Car car : cars) {
-            lines.add(car.toString());
+        List<String> lines = new ArrayList<>();
+        lines.add("" + slideList.size());
+
+        for (Slide slide : slideshow.getSlides()) {
+            lines.add(slide.toString());
         }
 
         try {
