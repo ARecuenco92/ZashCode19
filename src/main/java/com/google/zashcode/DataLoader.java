@@ -41,7 +41,11 @@ public class DataLoader {
             horizontal = arrayLine[0].equals("H") ? true:false;
             int numTags = Integer.parseInt(arrayLine[1]);
             tagList = new ArrayList<String>();
+            for(int i = 2; i < arrayLine.length; i++){
+                    tagList.add(arrayLine[i]);
+            }
             pictures.add(new Picture(pictureId, horizontal,tagList));
+            pictureId++;
         }
 
         return pictures;
